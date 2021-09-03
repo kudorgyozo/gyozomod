@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<PsionicPowers>
+  <!-- "messageDuration" is in seconds--> 
+  <Fear          ap="10" moraleDamage="90" anim="particles/psionic/psionic" sound="PsionicPower" messageDuration="2.0" strengthModifier="1.0" range="12" />  <!-- "moraleDamage" is in % -->
+  <Hallucination ap="1"                                                                                                strengthModifier="1.0" range="12" />
+  <LocateEnemies ap="1"                                                                          messageDuration="2.0" strengthModifier="1.0" range="12" />
+  <Paralyse      ap="1"                    anim="particles/psionic/psionic" sound="PsionicPower" messageDuration="2.0" strengthModifier="1.0" range="6" />
+  <MindControl   ap="40"                   anim="particles/psionic/psionic" sound="PsionicPower" messageDuration="2.0" strengthModifier="1.0" range="12" />
+  <Dread         loseAP="30"                                                                     messageDuration="1.0" strengthModifier="0.5" range="1" />  <!-- "loseAP" is in % -->
+  <Bezerk        ap="30"                   anim="particles/psionic/psionic" sound="PsionicPower" messageDuration="2.0" strengthModifier="1.0" range="6" />
+</PsionicPowers>

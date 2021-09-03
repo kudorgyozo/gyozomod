@@ -254,8 +254,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s67"><Data ss:Type="String">Radar</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="Number">250000</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="Number">50000</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="Number">123</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="Number">45</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">uitextures/buildings/radar</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="Number">10</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">1;1</Data></Cell>
