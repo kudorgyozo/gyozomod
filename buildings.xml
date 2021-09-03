@@ -119,8 +119,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">LivingQuarters</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="Number">123</Data></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="Number">45</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="Number">50000</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="Number">12500</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">uitextures/buildings/livingquarters</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">1;2</Data></Cell>
