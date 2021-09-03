@@ -1,11 +1,9 @@
-<?xml version="1.0" ?> 
+<?xml version="1.0" ?>
 <AIProps>
-
-<!-- This file controls the Ground Combat stats for non-Xenonaut units -->
-
-	<!-- Default behaviour values used for all Races, lookup is defined as a left-merge: Default -> Race -> Rank; with last taking preference. -->
-	<Behaviour>
-	    <!-- 
+  <!-- This file controls the Ground Combat stats for non-Xenonaut units -->
+  <!-- Default behaviour values used for all Races, lookup is defined as a left-merge: Default -> Race -> Rank; with last taking preference. -->
+  <Behaviour>
+    <!-- 
 			Variables used to give value to location on the map.
 			The actual value of a location is defined as the sum of all different values types: sum((value / maxValue) * weight).			
 			The target location around the unit with the LOWEST value will be chosen to move to. (with some randomness)
@@ -34,8 +32,8 @@
 							- Xenonauts Base Defend Mission:
 								- KeyProps, Command Room (both once detected at least once)
 							- 
-		-->		
-		<Pathing 
+		-->
+    <Pathing 
 				Environment = "-20"
 				Sight="-0.5" 
 				Sound="-0.1"
@@ -49,9 +47,8 @@
 				AlliedLOS="0.5"
 				ProbabilisticSearch="-0.5"
 				NearestEnemy="-1"
-				Goal="-20" />		
-		
-		<!-- 
+				Goal="-20" />
+    <!-- 
 				FloorPreference: A negative value will attract to upper floors, a positive to the ground.
 								[S_DEFENSIVE SCRIPT/"Defensive"]: AI set on S_DEFENSIVE script will use the FloorPreference as an added weight to UFO tiles. positive will make them stick to the floor; negative will make them prefer upper floors.
 								- Tip: Set the higher level units to prefer upper floors and lower to low scores, then the AI will deal with who needs to be where;
@@ -61,7 +58,7 @@
 				LookAroundSpawn: If 1 will limit the AI to the area around its spawn location, to maximally the DistanceLimit
 				CautiousDistance: The distance to a known enemy before the AI starts reserving TU for reaction shots.
 			-->
-		<PathingMechanics 
+    <PathingMechanics 
 				EnemyInfluenceValue = "1.0"
 				EnemyInfluenceDecay = "0.95"
 				AlliedInfluenceValue = "1.0"
@@ -71,9 +68,8 @@
 				CoverAttack = "0.80"
 				LookAroundSpawn = "0"
 				CautiousDistance = "35"
-				/>	
-		
-		<!-- Variables used in the decision making process of the AI.
+				/>
+    <!-- Variables used in the decision making process of the AI.
 				These are mostly used in designating a value to the outcome of an action in some way.
 				
 				For target evaluation, the following function is used:
@@ -108,8 +104,7 @@
 					
 				
 		-->
-		
-		<Decision 
+    <Decision 
 				MinimumAccuracy = "0.35"		
 				MinimumAccuracyGrenade = "0.35"
 				EngagementRange = "25.0"
@@ -117,49 +112,44 @@
 				ChanceForKeyPropAggressor = "0.2"
 				ChanceForExpansionFromGoalTiles = "0.5"
 		/>
-				
-		<Effect 
+    <Effect 
 				PrimaryEffect = "1.0" 
 				SideEffect = "0.25" 
 				CharacterPreference = "1.0" 	
 				KeyPropPreference = "0.1"		
 				EnemyShotPreference = "1.0" 
 				AlliedShotPreference = "-2.0" />
-			
-		<Target
+    <Target
 				DamagePreference = "1.0" 
 				KillPreference = "1.5" 
 				RankPreference = "1.0" />
-
-		<Faction
+    <Faction
 				Xenonauts = "1.0"
 				AlliedUnits = "0.2"
 				Civilians = "0.1"
 				Aliens = "1.0" />
-
-		<WeaponDamage
+    <WeaponDamage
 				NormalDamage = "1.0"
 				StunDamage = "0.20"
 				EmpDamage = "1.0" />
-		
-		<!-- Scripts used: Aggressive, Defensive, Guard, Command, Civilian, FriendlyAI; Currently only Pathing is overridable -->
-		<ScriptOverrides>
-			<Aggressive>	
-				<!-- Ensure that the Passive AI doesn't respond to requests for help that eagerly (Goal) and sticks more to hidden locations -->
-				<Pathing 
+    <!-- Scripts used: Aggressive, Defensive, Guard, Command, Civilian, FriendlyAI; Currently only Pathing is overridable -->
+    <ScriptOverrides>
+      <Aggressive>
+        <!-- Ensure that the Passive AI doesn't respond to requests for help that eagerly (Goal) and sticks more to hidden locations -->
+        <Pathing 
 					EnemyInfluence="-8"
 					AlliedInfluence="-1"
-					ProbabilisticSearch="-4" />					
-				<Decision 
+					ProbabilisticSearch="-4" />
+        <Decision 
 						MinimumAccuracy = "0.20"		
 						MinimumAccuracyGrenade = "0.20" />
-			</Aggressive>
-			<Passive>
-				<PathingMechanics 
+      </Aggressive>
+      <Passive>
+        <PathingMechanics 
 						FloorPreference = "-1"
-						/>	
-				<!-- Ensure that the Passive AI doesn't respond to requests for help that eagerly (Goal) and sticks more to hidden locations -->
-				<Pathing 
+						/>
+        <!-- Ensure that the Passive AI doesn't respond to requests for help that eagerly (Goal) and sticks more to hidden locations -->
+        <Pathing 
 					Environment = "-20"
 					Sight="2" 
 					Sound="-0.1"
@@ -174,13 +164,13 @@
 					ProbabilisticSearch="-0.5"
 					NearestEnemy="0"
 					Goal="-1" />
-			</Passive>
-			<Defensive>
-				<PathingMechanics 
+      </Passive>
+      <Defensive>
+        <PathingMechanics 
 						FloorPreference = "0.25"
-						/>	
-				<!-- Ensure that the Defensive AI searches around the UFO, and doesn't just blindly search for enemies. -->
-				<Pathing 
+						/>
+        <!-- Ensure that the Defensive AI searches around the UFO, and doesn't just blindly search for enemies. -->
+        <Pathing 
 						Sight="2"
 						Cover="-15"
 						ShotPotential="-26"
@@ -189,15 +179,14 @@
 						EnemyLOS="4"
 						Trepidation="10"
 						ProbabilisticSearch="-6"
-						Goal="-30" />	
-						
-				<Decision 
+						Goal="-30" />
+        <Decision 
 						MinimumAccuracy = "0.15"		
 						MinimumAccuracyGrenade = "0.15" />
-			</Defensive>
-			<Command>
-				<!-- Ensure that the Defensive AI searches around the UFO, and doesn't just blindly search for enemies. -->
-				<Pathing 
+      </Defensive>
+      <Command>
+        <!-- Ensure that the Defensive AI searches around the UFO, and doesn't just blindly search for enemies. -->
+        <Pathing 
 						Sight="4"
 						Cover="-1"
 						Ambush="-25"
@@ -207,16 +196,15 @@
 						EnemyLOS="4"
 						Trepidation="4"
 						ProbabilisticSearch="-3"
-						Goal="-60" />	
-						
-				<Decision 
+						Goal="-60" />
+        <Decision 
 						MinimumAccuracy = "0.15"		
 						MinimumAccuracyGrenade = "0.15"
 						ChanceForExpansionFromGoalTiles = "0.6" />
-			</Command>
-			<Guard>
-				<!-- Ensure that the Guard AI searches around its spawn point. -->
-				<Pathing 
+      </Command>
+      <Guard>
+        <!-- Ensure that the Guard AI searches around its spawn point. -->
+        <Pathing 
 						Sight="2"
 						Cover="-15"
 						Ambush="-8"
@@ -226,119 +214,95 @@
 						EnemyLOS="4"
 						Trepidation="4"
 						ProbabilisticSearch="-6"
-						Goal="-30" />	
-						
-				<Decision 
+						Goal="-30" />
+        <Decision 
 						MinimumAccuracy = "0.15"		
 						MinimumAccuracyGrenade = "0.15" />
-						
-				<PathingMechanics 
+        <PathingMechanics 
 						FloorPreference = "0.25"
 						LookAroundSpawn = "1"
-						/>	
-			</Guard>
-		</ScriptOverrides>
-		
-	</Behaviour>
-
-<!--                    -->
-<!--  	   Caesans 		-->
-<!--                    -->
-
+						/>
+      </Guard>
+    </ScriptOverrides>
+  </Behaviour>
+  <!--                    -->
+  <!--  	   Caesans 		-->
+  <!--                    -->
   <AI race="Caesan">
     <Sounds death="CaesanDeath" injury="CaesanInjury" />
-	
-	<Behaviour>
-		<Pathing 
+    <Behaviour>
+      <Pathing 
 				Sight="0.3" 
 				Cover="-0.5"
 				EnemyInfluence="-1"
 				AlliedInfluence="-2"
 				NearestEnemy="0"				/>
-				
-		<Decision 
+      <Decision 
 				MinimumAccuracy = "0.35"		
 				MinimumAccuracyGrenade = "0.35"
 				EngagementRange = "25.0" />
-	</Behaviour>
-	
+    </Behaviour>
     <!-- When moveSpeed, stairsMoveSpeed and vaultMoveSpeed aren't set, values from config are used. -->
     <Props sightRange="18" suppressionMultiplier="0.8"/>
     <GibbedSpectre name="particles/gibbed_alien/gibbed_alien" />
-
     <Rank type="NonCombatant">
-	
       <Props APs="50" Resilience="45" Strength="60" Accuracy="60" Reflexes="50" Bravery="40" />
       <Decision MinimumAccuracy = "0.30"	EngagementRange = "25" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.CaesanNonCombatantCorpse" stunned="Items.CaesanNonCombatant" />
       <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienPlasmaPistol" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
           </Belt>
         </Equipment>
-        
       </Equipments>
     </Rank>
-    
-    
     <Rank type="Guard">
       <Props APs="50" Resilience="60" Strength="60" Accuracy="60" Reflexes="55" Bravery="50" />
-	    <Decision MinimumAccuracy = "0.40"	EngagementRange = "25.0" />
+      <Decision MinimumAccuracy = "0.40"	EngagementRange = "25.0" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.CaesanGuardCorpse" stunned="Items.CaesanGuard" />
       <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienPlasmaRifle" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
           </Belt>
         </Equipment>
-        
       </Equipments>
     </Rank>
-
-    
     <Rank type="GuardSupport">
       <Props APs="50" Resilience="60" Strength="60" Accuracy="60" Reflexes="55" Bravery="50" />
-	    <Decision MinimumAccuracy = "0.40" />
+      <Decision MinimumAccuracy = "0.40" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.CaesanGuardCorpse" stunned="Items.CaesanGuard" />
       <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienPlasmaRifle" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
           </Belt>
         </Equipment>
-        
       </Equipments>
     </Rank>
-
-    
     <Rank type="Soldier">
       <Props APs="52" Resilience="90" Strength="60" Accuracy="65" Reflexes="60" Bravery="60" />
-	    <Decision MinimumAccuracy = "0.50"	EngagementRange = "25.0" />
+      <Decision MinimumAccuracy = "0.50"	EngagementRange = "25.0" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.CaesanSoldierCorpse" stunned="Items.CaesanSoldier" />
       <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienPlasmaRifle" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
           </Belt>
         </Equipment>
-
         <Equipment>
           <PrimaryWeapon name="weapon.AlienPlasmaRifle" />
           <Belt>
@@ -346,10 +310,8 @@
             <Item name="weapon.aliengrenade" />
           </Belt>
         </Equipment>
-
       </Equipments>
     </Rank>
-
     <Rank type="SoldierSupport">
       <Props APs="52" Resilience="90" Strength="60" Accuracy="65" Reflexes="60" Bravery="60" />
       <Decision MinimumAccuracy = "0.40"	EngagementRange = "25.0" />
@@ -357,7 +319,6 @@
       <Items killed="Items.CaesanSoldierCorpse" stunned="Items.CaesanSoldier" />
       <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienSniperPlasma" />
           <Belt>
@@ -367,8 +328,6 @@
         </Equipment>
       </Equipments>
     </Rank>
-
-    
     <Rank type="Warrior">
       <Props APs="55" Resilience="135" Strength="60" Accuracy="70" Reflexes="65" Bravery="70" />
       <Decision MinimumAccuracy = "0.40"	EngagementRange = "25.0" />
@@ -376,7 +335,6 @@
       <Items killed="Items.CaesanWarriorCorpse" stunned="Items.CaesanWarrior" />
       <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-              
         <Equipment>
           <PrimaryWeapon name="weapon.AlienHeavyPlasmaRifle" />
           <Belt>
@@ -384,9 +342,8 @@
             <Item name="weapon.aliengrenade" />
           </Belt>
         </Equipment>
-           </Equipments>
+      </Equipments>
     </Rank>
-
     <Rank type="WarriorSupport">
       <Props APs="55" Resilience="135" Strength="60" Accuracy="70" Reflexes="65" Bravery="70" />
       <Decision MinimumAccuracy = "0.40"	EngagementRange = "25.0" />
@@ -394,7 +351,6 @@
       <Items killed="Items.CaesanWarriorCorpse" stunned="Items.CaesanWarrior" />
       <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-              
         <Equipment>
           <PrimaryWeapon name="weapon.AlienSniperPlasma" />
           <Belt>
@@ -402,10 +358,8 @@
             <Item name="weapon.aliengrenade" />
           </Belt>
         </Equipment>
-           </Equipments>
+      </Equipments>
     </Rank>
-
-    
     <Rank type="Elite">
       <Props APs="60" Resilience="200" Strength="60" Accuracy="75" Reflexes="70" Bravery="90" />
       <Decision MinimumAccuracy = "0.50"	EngagementRange = "25.0" />
@@ -413,26 +367,22 @@
       <Items killed="Items.CaesanEliteCorpse" stunned="Items.CaesanElite" />
       <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienBattleRifle" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
             <Item name="weapon.alienadvancedgrenade" />
           </Belt>
-        </Equipment>        
+        </Equipment>
       </Equipments>
     </Rank>
-
-
     <Rank type="Officer">
-      <Props APs="55" Resilience="120" Strength="60" Accuracy="70" Reflexes="65" Bravery="80" PsionicPower="70" PsionicAttacks="Fear" />
+      <Props APs="55" Resilience="120" Strength="60" Accuracy="70" Reflexes="65" Bravery="80" PsionicPower="50" PsionicAttacks="Fear" />
       <Armour kinetic="0" energy="0" chemical="50" incendiary="0" />
       <Decision MinimumAccuracy = "0.40"	EngagementRange = "25.0" />
       <Items killed="Items.CaesanOfficerCorpse" stunned="Items.CaesanOfficer" />
       <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienPlasmaRifle" />
           <Belt>
@@ -440,7 +390,6 @@
             <Item name="weapon.aliengrenade" />
           </Belt>
         </Equipment>
-
         <Equipment>
           <PrimaryWeapon name="weapon.AlienSniperPlasma" />
           <Belt>
@@ -448,11 +397,8 @@
             <Item name="weapon.aliengrenade" />
           </Belt>
         </Equipment>
-        
       </Equipments>
     </Rank>
-
-
     <Rank type="Psion">
       <Props APs="50" Resilience="60" Strength="60" Accuracy="55" Reflexes="60" Bravery="40" PsionicPower="60" PsionicAttacks="Fear" />
       <Decision MinimumAccuracy = "0.30"	EngagementRange = "20.0" />
@@ -460,46 +406,36 @@
       <Items killed="Items.CaesanPsionCorpse" stunned="Items.CaesanPsion" />
       <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienPlasmaPistol" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
           </Belt>
         </Equipment>
-        
       </Equipments>
     </Rank>
-
-
     <Rank type="Leader">
-      <Props APs="60" Resilience="200" Strength="60" Accuracy="75" Reflexes="70" Bravery="90" PsionicPower="80" PsionicAttacks="Bezerk, MindControl" />
-  	  <Decision MinimumAccuracy = "0.40"	EngagementRange = "25.0" />
+      <Props APs="60" Resilience="200" Strength="60" Accuracy="75" Reflexes="70" Bravery="90" PsionicPower="60" PsionicAttacks="Bezerk, MindControl" />
+      <Decision MinimumAccuracy = "0.40"	EngagementRange = "25.0" />
       <Armour kinetic="0" energy="0" chemical="50" incendiary="0" />
       <Items killed="Items.CaesanLeaderCorpse" stunned="Items.CaesanLeader" />
       <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienBattleRifle" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
           </Belt>
         </Equipment>
-        
       </Equipments>
     </Rank>
   </AI>
-
-
-<!--                    -->
-<!--  	  Sebillians 	-->
-<!--                    -->
-
-  <AI race="Sebillian">  
-	
-	<Behaviour>
-		<Pathing 
+  <!--                    -->
+  <!--  	  Sebillians 	-->
+  <!--                    -->
+  <AI race="Sebillian">
+    <Behaviour>
+      <Pathing 
 				Sight="-0.5" 
 				ShotPotential="-10"
 				EnemyInfluence="-0"
@@ -512,172 +448,144 @@
 				ProbabilisticSearch="-0.5"
 				NearestEnemy="0"
 				Goal="-20" />
-		<Decision 
+      <Decision 
 				MinimumAccuracy = "0.35"		
 				MinimumAccuracyGrenade = "0.35"
 				EngagementRange = "20.0" />
-	</Behaviour>
-	
+    </Behaviour>
     <Sounds death="SebillianDeath" injury="SebillianInjury" />
     <Props sightRange="18" suppressionMultiplier="0.5" noSmokeAccuracyPenalty="1" />
-	<GibbedSpectre name="particles/gibbed_alien/gibbed_alien" />
-    
+    <GibbedSpectre name="particles/gibbed_alien/gibbed_alien" />
     <Rank type="NonCombatant">
       <Props APs="50" Resilience="60" Strength="60" Accuracy="45" Reflexes="25" Bravery="40" Abilities="Regeneration" />
-	  <Decision MinimumAccuracy = "0.30" />
+      <Decision MinimumAccuracy = "0.30" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.SebillianNonCombatantCorpse" stunned="Items.SebillianNonCombatant" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
-      <Equipments>        
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <Equipments>
         <Equipment>
           <PrimaryWeapon name="weapon.AlienPlasmaPistol" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
           </Belt>
-        </Equipment>        
+        </Equipment>
       </Equipments>
     </Rank>
-
-
     <Rank type="Guard">
       <Props APs="55" Resilience="75" Strength="60" Accuracy="45" Reflexes="30" Bravery="50" Abilities="Regeneration" />
-	  <Decision MinimumAccuracy = "0.35" />
+      <Decision MinimumAccuracy = "0.35" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.SebillianGuardCorpse" stunned="Items.SebillianGuard" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienPlasmaRifle" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
           </Belt>
         </Equipment>
-        
       </Equipments>
     </Rank>
-
     <Rank type="GuardSupport">
       <Props APs="55" Resilience="75" Strength="60" Accuracy="45" Reflexes="30" Bravery="50" Abilities="Regeneration" />
-	  <Decision MinimumAccuracy = "0.60" />
+      <Decision MinimumAccuracy = "0.60" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.SebillianGuardCorpse" stunned="Items.SebillianGuard" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienAssaultPlasma" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
           </Belt>
         </Equipment>
-        
       </Equipments>
     </Rank>
-
-
     <Rank type="Soldier">
       <Props APs="57" Resilience="110" Strength="60" Accuracy="50" Reflexes="35" Bravery="55" Abilities="Regeneration" />
-	  <Decision MinimumAccuracy = "0.60" />
+      <Decision MinimumAccuracy = "0.60" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.SebillianSoldierCorpse" stunned="Items.SebillianSoldier" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienPlasmaRifle" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
             <Item name="weapon.aliengrenade" />
-         </Belt>
+          </Belt>
         </Equipment>
-        
       </Equipments>
     </Rank>
-
     <Rank type="SoldierSupport">
       <Props APs="57" Resilience="110" Strength="60" Accuracy="50" Reflexes="35" Bravery="55" Abilities="Regeneration" />
-	  <Decision MinimumAccuracy = "0.40" />
+      <Decision MinimumAccuracy = "0.40" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.SebillianSoldierCorpse" stunned="Items.SebillianSoldier" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienAssaultPlasma" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
-         </Belt>
+          </Belt>
         </Equipment>
-        
       </Equipments>
     </Rank>
-
-	<Rank type="SoldierAssault">
+    <Rank type="SoldierAssault">
       <Props APs="57" Resilience="110" Strength="60" Accuracy="50" Reflexes="35" Bravery="55" Abilities="Regeneration" />
-	  <Decision MinimumAccuracy = "0.40" />
+      <Decision MinimumAccuracy = "0.40" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.SebillianSoldierCorpse" stunned="Items.SebillianSoldier" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienAssaultPlasma" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
             <Item name="weapon.aliengrenade" />
-         </Belt>
+          </Belt>
         </Equipment>
-        
       </Equipments>
     </Rank>
-
     <Rank type="Warrior">
       <Props APs="60" Resilience="160" Strength="60" Accuracy="55" Reflexes="40" Bravery="60" Abilities="Regeneration" />
-	  <Decision MinimumAccuracy = "0.60" />
+      <Decision MinimumAccuracy = "0.60" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.SebillianWarriorCorpse" stunned="Items.SebillianWarrior" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienHeavyPlasmaRifle" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
-			<Item name="weapon.aliengrenade" />
+            <Item name="weapon.aliengrenade" />
           </Belt>
         </Equipment>
-
       </Equipments>
     </Rank>
-
-	
     <Rank type="WarriorSupport">
       <Props APs="60" Resilience="160" Strength="60" Accuracy="55" Reflexes="40" Bravery="60" Abilities="Regeneration" />
-	  <Decision MinimumAccuracy = "0.40" />
+      <Decision MinimumAccuracy = "0.40" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.SebillianWarriorCorpse" stunned="Items.SebillianWarrior" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienPlasmaCannon" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
           </Belt>
         </Equipment>
-
       </Equipments>
     </Rank>
-
-	<Rank type="WarriorAssault">
+    <Rank type="WarriorAssault">
       <Props APs="60" Resilience="160" Strength="60" Accuracy="55" Reflexes="40" Bravery="60" Abilities="Regeneration" />
-	  <Decision MinimumAccuracy = "0.40" />
+      <Decision MinimumAccuracy = "0.40" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.SebillianWarriorCorpse" stunned="Items.SebillianWarrior" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienAssaultPlasma" />
           <Belt>
@@ -685,18 +593,15 @@
             <Item name="weapon.aliengrenade" />
           </Belt>
         </Equipment>
-
       </Equipments>
     </Rank>
-
     <Rank type="Elite">
       <Props APs="70" Resilience="240" Strength="60" Accuracy="60" Reflexes="45" Bravery="75" Abilities="Regeneration" />
-	  <Decision MinimumAccuracy = "0.50"  />
+      <Decision MinimumAccuracy = "0.50"  />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.SebillianEliteCorpse" stunned="Items.SebillianElite" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienHeavyPlasmaRifle" />
           <Belt>
@@ -704,43 +609,38 @@
             <Item name="weapon.alienadvancedgrenade" />
           </Belt>
         </Equipment>
-
         <Equipment>
           <PrimaryWeapon name="weapon.AlienPlasmaCannon" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
             <Item name="weapon.alienadvancedgrenade" />
           </Belt>
-        </Equipment>     
+        </Equipment>
       </Equipments>
     </Rank>
-
-	<Rank type="EliteAssault">
+    <Rank type="EliteAssault">
       <Props APs="70" Resilience="240" Strength="60" Accuracy="60" Reflexes="45" Bravery="75" Abilities="Regeneration" />
-	  <Decision MinimumAccuracy = "0.50"  />
+      <Decision MinimumAccuracy = "0.50"  />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.SebillianEliteCorpse" stunned="Items.SebillianElite" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-   
         <Equipment>
           <PrimaryWeapon name="weapon.AlienHeavyPlasmaRifle" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
             <Item name="weapon.alienadvancedgrenade" />
           </Belt>
-        </Equipment>     
+        </Equipment>
       </Equipments>
     </Rank>
-    
     <Rank type="Officer">
       <Props APs="65" Resilience="160" Strength="60" Accuracy="55" Reflexes="40" Bravery="65" Abilities="Regeneration" />
-	  <Decision MinimumAccuracy = "0.60" />	  
+      <Decision MinimumAccuracy = "0.60" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.SebillianOfficerCorpse" stunned="Items.SebillianOfficer" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienHeavyPlasmaRifle" />
           <Belt>
@@ -748,18 +648,15 @@
             <Item name="weapon.aliengrenade" />
           </Belt>
         </Equipment>
-        
       </Equipments>
     </Rank>
-
-	<Rank type="OfficerAssault">
+    <Rank type="OfficerAssault">
       <Props APs="65" Resilience="160" Strength="60" Accuracy="55" Reflexes="40" Bravery="70" Abilities="Regeneration" />
-	  <Decision MinimumAccuracy = "0.60" />	  
+      <Decision MinimumAccuracy = "0.60" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.SebillianOfficerCorpse" stunned="Items.SebillianOfficer" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienAssaultPlasma" />
           <Belt>
@@ -767,18 +664,15 @@
             <Item name="weapon.aliengrenade" />
           </Belt>
         </Equipment>
-        
       </Equipments>
     </Rank>
-    
     <Rank type="Leader">
       <Props APs="70" Resilience="240" Strength="60" Accuracy="60" Reflexes="45" Bravery="70" Abilities="Regeneration" />
-	  <Decision MinimumAccuracy = "0.60" />
+      <Decision MinimumAccuracy = "0.60" />
       <Armour kinetic="0" energy="0" chemical="50" incendiary="0" />
       <Items killed="Items.SebillianLeaderCorpse" stunned="Items.SebillianLeader" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienHeavyPlasmaRifle" />
           <Belt>
@@ -786,26 +680,22 @@
             <Item name="weapon.alienadvancedgrenade" />
           </Belt>
         </Equipment>
-		
-		 <Equipment>
+        <Equipment>
           <PrimaryWeapon name="weapon.AlienPlasmaCannon" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
             <Item name="weapon.alienadvancedgrenade" />
           </Belt>
         </Equipment>
-        
       </Equipments>
     </Rank>
-
-  <Rank type="LeaderAssault">
+    <Rank type="LeaderAssault">
       <Props APs="70" Resilience="240" Strength="60" Accuracy="60" Reflexes="45" Bravery="90" Abilities="Regeneration" />
-	  <Decision MinimumAccuracy = "0.60" />
+      <Decision MinimumAccuracy = "0.60" />
       <Armour kinetic="0" energy="0" chemical="50" incendiary="0" />
       <Items killed="Items.SebillianLeaderCorpse" stunned="Items.SebillianLeader" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienAssaultPlasma" />
           <Belt>
@@ -813,239 +703,198 @@
             <Item name="weapon.alienadvancedgrenade" />
           </Belt>
         </Equipment>
-        
       </Equipments>
     </Rank>
   </AI>
-  
-<!--                    -->
-<!--  	   Androns 		-->
-<!--                    -->
-
+  <!--                    -->
+  <!--  	   Androns 		-->
+  <!--                    -->
   <AI race="Andron">
     <Sounds death="AndronDeath" injury="AndronInjury" />
-    <Special strength="1" />  <!-- 'strength' seems to be not used in the code. -->
+    <Special strength="1" />
+    <!-- 'strength' seems to be not used in the code. -->
     <Props noBloodStain="1" sightRange="18" moveSpeed="150" stairsMoveSpeed="80" suppressionMultiplier="0.0" />
-	<GibbedSpectre name="units/alien/lightdrone/lightdrone/weapon.lightdroneblaster/droneexplode" />
-	<Behaviour>				
-		<Decision 
+    <GibbedSpectre name="units/alien/lightdrone/lightdrone/weapon.lightdroneblaster/droneexplode" />
+    <Behaviour>
+      <Decision 
 				MinimumAccuracy = "0.35"		
 				MinimumAccuracyGrenade = "0.35"
 				EngagementRange = "25.0" />
-	</Behaviour>
-
- 
+    </Behaviour>
     <Rank type="Guard">
       <Props APs="45" Resilience="60" Strength="80" Accuracy="45" Reflexes="60" Bravery="100" Abilities="Robotic, Heavy" CrouchDisabled="1" />
       <Armour kinetic="20" energy="20" chemical="100" incendiary="0" />
       <Items killed="Items.AndronGuardCorpse" stunned="Items.AndronGuard" />
-	  <BloodHitSprite name="particles/hit_spark/hit_spark" />
+      <BloodHitSprite name="particles/hit_spark/hit_spark" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienPlasmaRifle" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
           </Belt>
         </Equipment>
-        
       </Equipments>
     </Rank>
-
-    
     <Rank type="Soldier">
       <Props APs="55" Resilience="90" Strength="80" Accuracy="55" Reflexes="60" Bravery="100" Abilities="Robotic, Heavy" CrouchDisabled="1" />
       <Armour kinetic="28" energy="28" chemical="100" incendiary="0" />
       <Items killed="Items.AndronSoldierCorpse" stunned="Items.AndronSoldier" />
-	  <BloodHitSprite name="particles/hit_spark/hit_spark" />
+      <BloodHitSprite name="particles/hit_spark/hit_spark" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienHeavyPlasmaRifle" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
           </Belt>
         </Equipment>
-      
       </Equipments>
     </Rank>
-
     <Rank type="SoldierSupport">
-	<Decision MinimumAccuracy = "0.35" />
+      <Decision MinimumAccuracy = "0.35" />
       <Props APs="55" Resilience="90" Strength="80" Accuracy="55" Reflexes="60" Bravery="100" Abilities="Robotic, Heavy" CrouchDisabled="1" />
       <Armour kinetic="28" energy="28" chemical="100" incendiary="0" />
       <Items killed="Items.AndronSoldierCorpse" stunned="Items.AndronSoldier" />
-	  <BloodHitSprite name="particles/hit_spark/hit_spark" />
+      <BloodHitSprite name="particles/hit_spark/hit_spark" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienAssaultPlasma" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
           </Belt>
         </Equipment>
-      
       </Equipments>
     </Rank>
-
     <Rank type="SoldierAssault">
-	<Decision MinimumAccuracy = "0.35" />
+      <Decision MinimumAccuracy = "0.35" />
       <Props APs="55" Resilience="90" Strength="80" Accuracy="55" Reflexes="60" Bravery="100" Abilities="Robotic, Heavy" CrouchDisabled="1" />
       <Armour kinetic="28" energy="28" chemical="100" incendiary="0" />
       <Items killed="Items.AndronSoldierCorpse" stunned="Items.AndronSoldier" />
-	  <BloodHitSprite name="particles/hit_spark/hit_spark" />
+      <BloodHitSprite name="particles/hit_spark/hit_spark" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienAssaultPlasma" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
           </Belt>
         </Equipment>
-      
       </Equipments>
     </Rank>
-	
     <Rank type="Warrior">
       <Props APs="57" Resilience="135" Strength="80" Accuracy="60" Reflexes="65" Bravery="100" Abilities="Robotic, Heavy" CrouchDisabled="1" />
       <Armour kinetic="34" energy="34" chemical="100" incendiary="0" />
       <Items killed="Items.AndronWarriorCorpse" stunned="Items.AndronWarrior" />
-	  <BloodHitSprite name="particles/hit_spark/hit_spark" />
+      <BloodHitSprite name="particles/hit_spark/hit_spark" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienHeavyPlasmaRifle" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
           </Belt>
         </Equipment>
-
       </Equipments>
     </Rank>
-	
     <Rank type="WarriorSupport">
       <Props APs="57" Resilience="135" Strength="80" Accuracy="60" Reflexes="65" Bravery="100" Abilities="Robotic, Heavy" CrouchDisabled="1" />
       <Armour kinetic="34" energy="34" chemical="100" incendiary="0" />
       <Items killed="Items.AndronWarriorCorpse" stunned="Items.AndronWarrior" />
-	  <BloodHitSprite name="particles/hit_spark/hit_spark" />
+      <BloodHitSprite name="particles/hit_spark/hit_spark" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienPlasmaCannon" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
           </Belt>
         </Equipment>
-        
       </Equipments>
     </Rank>
-
     <Rank type="WarriorAssault">
       <Props APs="57" Resilience="135" Strength="80" Accuracy="60" Reflexes="65" Bravery="100" Abilities="Robotic, Heavy" CrouchDisabled="1" />
       <Armour kinetic="34" energy="34" chemical="100" incendiary="0" />
       <Items killed="Items.AndronWarriorCorpse" stunned="Items.AndronWarrior" />
-	  <BloodHitSprite name="particles/hit_spark/hit_spark" />
+      <BloodHitSprite name="particles/hit_spark/hit_spark" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienAssaultPlasma" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
           </Belt>
         </Equipment>
-        
       </Equipments>
-    </Rank> 
-    
+    </Rank>
     <Rank type="Elite">
       <Props APs="60" Resilience="200" Strength="100" Accuracy="65" Reflexes="70" Bravery="100" Abilities="Robotic, Heavy" CrouchDisabled="1" />
       <Armour kinetic="44" energy="44" chemical="100" incendiary="0" />
       <Items killed="Items.AndronEliteCorpse" stunned="Items.AndronElite" />
-	  <BloodHitSprite name="particles/hit_spark/hit_spark" />
+      <BloodHitSprite name="particles/hit_spark/hit_spark" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienHeavyPlasmaRifle" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
           </Belt>
         </Equipment>
-
         <Equipment>
           <PrimaryWeapon name="weapon.AlienPlasmaCannon" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
           </Belt>
         </Equipment>
-        
       </Equipments>
     </Rank>
-
-	<Rank type="EliteAssault">
+    <Rank type="EliteAssault">
       <Props APs="60" Resilience="200" Strength="100" Accuracy="65" Reflexes="80" Bravery="100" Abilities="Robotic, Heavy" CrouchDisabled="1" />
       <Armour kinetic="44" energy="44" chemical="100" incendiary="0" />
       <Items killed="Items.AndronEliteCorpse" stunned="Items.AndronElite" />
-	  <BloodHitSprite name="particles/hit_spark/hit_spark" />
-      <Equipments>      
-        <Equipment>
-          <PrimaryWeapon name="weapon.AlienHeavyPlasmaRifle" />
-          <Belt>
-            <Item name="ammo.alienplasmacell" />
-          </Belt>
-        </Equipment>       
-      </Equipments>
-    </Rank>
-
-    <Rank type="Officer">
-      <Props APs="57" Resilience="135" Strength="100" Accuracy="60" Reflexes="80" Bravery="100" Abilities="Robotic, Heavy" CrouchDisabled="1" />
-      <Armour kinetic="36" energy="36" chemical="100" incendiary="0" />
-      <Items killed="Items.AndronOfficerCorpse" stunned="Items.AndronOfficer" />
-	  <BloodHitSprite name="particles/hit_spark/hit_spark" />
+      <BloodHitSprite name="particles/hit_spark/hit_spark" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienHeavyPlasmaRifle" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
           </Belt>
         </Equipment>
-        
       </Equipments>
     </Rank>
-  
-  <Rank type="OfficerAssault">
+    <Rank type="Officer">
       <Props APs="57" Resilience="135" Strength="100" Accuracy="60" Reflexes="80" Bravery="100" Abilities="Robotic, Heavy" CrouchDisabled="1" />
       <Armour kinetic="36" energy="36" chemical="100" incendiary="0" />
       <Items killed="Items.AndronOfficerCorpse" stunned="Items.AndronOfficer" />
-	  <BloodHitSprite name="particles/hit_spark/hit_spark" />
+      <BloodHitSprite name="particles/hit_spark/hit_spark" />
       <Equipments>
-        
+        <Equipment>
+          <PrimaryWeapon name="weapon.AlienHeavyPlasmaRifle" />
+          <Belt>
+            <Item name="ammo.alienplasmacell" />
+          </Belt>
+        </Equipment>
+      </Equipments>
+    </Rank>
+    <Rank type="OfficerAssault">
+      <Props APs="57" Resilience="135" Strength="100" Accuracy="60" Reflexes="80" Bravery="100" Abilities="Robotic, Heavy" CrouchDisabled="1" />
+      <Armour kinetic="36" energy="36" chemical="100" incendiary="0" />
+      <Items killed="Items.AndronOfficerCorpse" stunned="Items.AndronOfficer" />
+      <BloodHitSprite name="particles/hit_spark/hit_spark" />
+      <Equipments>
         <Equipment>
           <PrimaryWeapon name="weapon.AlienAssaultPlasma" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
           </Belt>
         </Equipment>
-        
       </Equipments>
     </Rank>
   </AI>
-
-
-<!--                    -->
-<!--  	  Harridans		-->
-<!--                    -->
-
+  <!--                    -->
+  <!--  	  Harridans		-->
+  <!--                    -->
   <AI race="Harridan">
     <Sounds death="HarridanDeath" injury="HarridanInjury" />
     <Special jumpPack="1" jumpPackSound="HarridanJetpackSound" />
     <Props sightRange="18" suppressionMultiplier="1.5" />
-	<GibbedSpectre name="particles/gibbed_alien/gibbed_alien" />
-	<Decision MinimumAccuracy = "0.40" />
-	
-	<Behaviour>
-	
-		<Pathing 
+    <GibbedSpectre name="particles/gibbed_alien/gibbed_alien" />
+    <Decision MinimumAccuracy = "0.40" />
+    <Behaviour>
+      <Pathing 
 				Environment = "2"
 				Sight="-10" 
 				Sound="-0.1"
@@ -1059,19 +908,16 @@
 				AlliedLOS="0.5"
 				ProbabilisticSearch="-2"
 				NearestEnemy="-0.1" />
-				
-		<PathingMechanics FloorPreference = "-10" />
-		<!--
+      <PathingMechanics FloorPreference = "-10" />
+      <!--
 			<Pathing 
 				Sight="-1"
 				ShotPotential="-0.75"
 				NearestEnemy="-0.1" />	
 				-->
-			
-			<ScriptOverrides>
-			<Aggressive>	
-				
-				<Pathing 
+      <ScriptOverrides>
+        <Aggressive>
+          <Pathing 
 						Environment = "2"
 						Sight="-10" 
 						Sound="-0.1"
@@ -1084,13 +930,11 @@
 						EnemyLOS="10"
 						AlliedLOS="0.5"
 						ProbabilisticSearch="-2"
-						NearestEnemy="-0.1" />	
-						
-				<PathingMechanics FloorPreference = "-10" />
-			</Aggressive>
-			<Passive>	
-						
-				<Pathing 
+						NearestEnemy="-0.1" />
+          <PathingMechanics FloorPreference = "-10" />
+        </Aggressive>
+        <Passive>
+          <Pathing 
 						Environment = "2"
 						Sight="-10" 
 						Sound="-0.1"
@@ -1103,13 +947,11 @@
 						EnemyLOS="10"
 						AlliedLOS="0.5"
 						ProbabilisticSearch="-2"
-						NearestEnemy="-0.1" />	
-						
-				<PathingMechanics FloorPreference = "-10" />
-			</Passive>
-			<Defensive>		
-				
-				<Pathing 
+						NearestEnemy="-0.1" />
+          <PathingMechanics FloorPreference = "-10" />
+        </Passive>
+        <Defensive>
+          <Pathing 
 						Environment = "2"
 						Sight="-10" 
 						Sound="-0.1"
@@ -1122,13 +964,11 @@
 						EnemyLOS="10"
 						AlliedLOS="0.5"
 						ProbabilisticSearch="-2"
-						NearestEnemy="-0.1" />	
-						
-				<PathingMechanics FloorPreference = "-10" />	
-			</Defensive>
-			<Command>	
-				
-				<Pathing 
+						NearestEnemy="-0.1" />
+          <PathingMechanics FloorPreference = "-10" />
+        </Defensive>
+        <Command>
+          <Pathing 
 						Environment = "2"
 						Sight="-10" 
 						Sound="-0.1"
@@ -1141,421 +981,340 @@
 						EnemyLOS="10"
 						AlliedLOS="0.5"
 						ProbabilisticSearch="-2"
-						NearestEnemy="-0.1" />	
-						
-				<PathingMechanics FloorPreference = "-10" />	
-			</Command>
-		</ScriptOverrides>
-	</Behaviour>
-
+						NearestEnemy="-0.1" />
+          <PathingMechanics FloorPreference = "-10" />
+        </Command>
+      </ScriptOverrides>
+    </Behaviour>
     <Rank type="Soldier">
       <Props APs="60" Resilience="80" Strength="50" Accuracy="70" Reflexes="80" Bravery="50" Abilities="Jetpack" />
       <Armour kinetic="0" energy="0" chemical="100" incendiary="0" />
       <Items killed="Items.HarridanSoldierCorpse" stunned="Items.HarridanSoldier" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienPlasmaRifle" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
             <Item name="weapon.aliengrenade" />
-		  </Belt>
-		</Equipment>
- 
-
-       
+          </Belt>
+        </Equipment>
       </Equipments>
     </Rank>
-
     <Rank type="SoldierSupport">
       <Props APs="60" Resilience="80" Strength="50" Accuracy="70" Reflexes="80" Bravery="50" Abilities="Jetpack" />
       <Armour kinetic="0" energy="0" chemical="100" incendiary="0" />
       <Items killed="Items.HarridanSoldierCorpse" stunned="Items.HarridanSoldier" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-
         <Equipment>
           <PrimaryWeapon name="weapon.AlienSniperPlasma" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
             <Item name="weapon.aliengrenade" />
-		  </Belt>
-		</Equipment>
-        
+          </Belt>
+        </Equipment>
       </Equipments>
     </Rank>
-
-
     <Rank type="Warrior">
       <Props APs="63" Resilience="120" Strength="50" Accuracy="75" Reflexes="85" Bravery="55" Abilities="Jetpack" />
       <Armour kinetic="0" energy="0" chemical="100" incendiary="0" />
       <Items killed="Items.HarridanWarriorCorpse" stunned="Items.HarridanWarrior" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienSniperPlasma" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
             <Item name="ammo.aliengrenade" />
-		  </Belt>
-		</Equipment>      
+          </Belt>
+        </Equipment>
       </Equipments>
     </Rank>
-
     <Rank type="WarriorSupport">
       <Props APs="63" Resilience="120" Strength="50" Accuracy="75" Reflexes="85" Bravery="55" Abilities="Jetpack" />
       <Armour kinetic="0" energy="0" chemical="100" incendiary="0" />
       <Items killed="Items.HarridanWarriorCorpse" stunned="Items.HarridanWarrior" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienPlasmaCannon" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
             <Item name="weapon.aliengrenade" />
-		   </Belt>
-		</Equipment>
-		
+          </Belt>
+        </Equipment>
       </Equipments>
     </Rank>
-    
     <Rank type="Elite">
       <Props APs="68" Resilience="180" Strength="50" Accuracy="80" Reflexes="90" Bravery="60" Abilities="Jetpack" />
       <Armour kinetic="0" energy="0" chemical="100" incendiary="0" />
       <Items killed="Items.HarridanEliteCorpse" stunned="Items.HarridanElite" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienSniperPlasma" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
             <Item name="weapon.alienadvancedgrenade" />
-	      </Belt>
-	    </Equipment>
-
+          </Belt>
+        </Equipment>
         <Equipment>
           <PrimaryWeapon name="weapon.AlienPlasmaCannon" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
             <Item name="weapon.alienadvancedgrenade" />
-	      </Belt>
-	    </Equipment>
-        
+          </Belt>
+        </Equipment>
       </Equipments>
     </Rank>
-
-    
     <Rank type="Officer">
       <Props APs="65" Resilience="120" Strength="50" Accuracy="75" Reflexes="85" Bravery="60" Abilities="Jetpack" />
       <Armour kinetic="0" energy="0" chemical="100" incendiary="0" />
       <Items killed="Items.HarridanOfficerCorpse" stunned="Items.HarridanOfficer" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
-        <Equipment>   
+        <Equipment>
           <PrimaryWeapon name="weapon.AlienSniperPlasma" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
             <Item name="ammo.aliengrenade" />
-	      </Belt>
-	    </Equipment>
-
-        <Equipment>   
+          </Belt>
+        </Equipment>
+        <Equipment>
           <PrimaryWeapon name="weapon.AlienPlasmaCannon" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
             <Item name="ammo.aliengrenade" />
-	      </Belt>
-	    </Equipment>
-
-        
+          </Belt>
+        </Equipment>
       </Equipments>
     </Rank>
   </AI>
-
-
-<!--                    -->
-<!--  	  Wraiths		-->
-<!--                    -->
-
+  <!--                    -->
+  <!--  	  Wraiths		-->
+  <!--                    -->
   <AI race="Wraith">
     <Sounds death="WraithDeath" injury="WraithInjury" />
     <Props sightRange="19" suppressionMultiplier="1.0" />
-	<GibbedSpectre name="particles/gibbed_alien/gibbed_alien" />
-	<Decision MinimumAccuracy = "0.35" />
-	<Pathing 
+    <GibbedSpectre name="particles/gibbed_alien/gibbed_alien" />
+    <Decision MinimumAccuracy = "0.35" />
+    <Pathing 
 		Sight="-0.5" 
 		NearestEnemy="-0.5" />
-    
     <Rank type="Soldier">
       <Props APs="60" Resilience="120" Strength="60" Accuracy="55" Reflexes="40" Bravery="60" Abilities="Teleportation" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.WraithSoldierCorpse" stunned="Items.WraithSoldier" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Teleportation maxDistance="15" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienPlasmaRifle" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
             <Item name="ammo.aliengrenade" />
-	      </Belt>
+          </Belt>
         </Equipment>
-                
       </Equipments>
     </Rank>
-
     <Rank type="SoldierSupport">
       <Props APs="60" Resilience="120" Strength="60" Accuracy="55" Reflexes="40" Bravery="60" Abilities="Teleportation" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.WraithSoldierCorpse" stunned="Items.WraithSoldier" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Teleportation maxDistance="15" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienHeavyPlasmaRifle" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
             <Item name="weapon.aliengrenade" />
-	      </Belt>
+          </Belt>
         </Equipment>
-                
       </Equipments>
     </Rank>
-
-
-    
     <Rank type="Warrior">
       <Props APs="62" Resilience="180" Strength="60" Accuracy="60" Reflexes="45" Bravery="65" Abilities="Teleportation" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.WraithWarriorCorpse" stunned="Items.WraithWarrior" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Teleportation maxDistance="20" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienHeavyPlasmaRifle" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
             <Item name="ammo.aliengrenade" />
-	      </Belt>
+          </Belt>
         </Equipment>
-       </Equipments>
+      </Equipments>
     </Rank>
-
     <Rank type="WarriorSupport">
       <Props APs="62" Resilience="180" Strength="60" Accuracy="60" Reflexes="45" Bravery="65" Abilities="Teleportation" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.WraithWarriorCorpse" stunned="Items.WraithWarrior" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Teleportation maxDistance="20" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienPlasmaCannon" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
             <Item name="weapon.aliengrenade" />
-	      </Belt>
+          </Belt>
         </Equipment>
-         </Equipments>
+      </Equipments>
     </Rank>
-
-    
     <Rank type="Elite">
       <Props APs="65" Resilience="270" Strength="65" Accuracy="65" Reflexes="50" Bravery="70" Abilities="Teleportation" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.WraithEliteCorpse" stunned="Items.WraithElite" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Teleportation maxDistance="25" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienHeavyPlasmaRifle" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
             <Item name="ammo.alienadvancedgrenade" />
-	      </Belt>
+          </Belt>
         </Equipment>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienPlasmaCannon" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
             <Item name="ammo.alienadvancedgrenade" />
-	      </Belt>
+          </Belt>
         </Equipment>
       </Equipments>
     </Rank>
-
-    
     <Rank type="Officer">
       <Props APs="62" Resilience="150" Strength="60" Accuracy="60" Reflexes="45" Bravery="70" Abilities="Teleportation" />
       <Armour kinetic="0" energy="0" chemical="50" incendiary="0" />
       <Items killed="Items.WraithOfficerCorpse" stunned="Items.WraithOfficer" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Teleportation maxDistance="25" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.AlienHeavyPlasmaRifle" />
           <Belt>
             <Item name="ammo.alienplasmacell" />
             <Item name="weapon.aliengrenade" />
-		      </Belt>
+          </Belt>
         </Equipment>
-        
       </Equipments>
     </Rank>
   </AI>
-
-<!--                            -->
-<!--  	  Reapers & Zombies		-->
-<!--                            -->
-
-  <AI race="Reaper">  
-  
-	<Behaviour>
-		<!-- General avoidance behaviour for zombies -->
-		<Pathing EnemyInfluence="0.5"
+  <!--                            -->
+  <!--  	  Reapers & Zombies		-->
+  <!--                            -->
+  <AI race="Reaper">
+    <Behaviour>
+      <!-- General avoidance behaviour for zombies -->
+      <Pathing EnemyInfluence="0.5"
 					Cover = "0.0" 
 					Sight = "1.0" />
-					
-		<Faction
+      <Faction
 				Xenonauts = "1.0"
 				AlliedUnits = "0.9"
 				Civilians = "0.8"
 				Aliens = "1.0" />
-	</Behaviour>
-	
+    </Behaviour>
     <Sounds death="ReaperDeath" injury="ReaperInjury" />
     <Props sightRange="20" suppressionMultiplier="0.6" moveSpeed="300" stairsMoveSpeed="200" />
-	<GibbedSpectre name="particles/gibbed_alien/gibbed_alien" />
-    
+    <GibbedSpectre name="particles/gibbed_alien/gibbed_alien" />
     <Rank type="Zombie.generic">
       <Props APs="36" Resilience="60" Strength="60" Accuracy="200" Reflexes="0" Bravery="100" Abilities="SpawnReaper"  CrouchDisabled="1" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.ReaperNonCombatantCorpse" stunned="Items.ReaperNonCombatant" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.zombiemelee" />
         </Equipment>
-        
       </Equipments>
     </Rank>
-
     <Rank type="Zombie.basic">
       <Props APs="36" Resilience="60" Strength="60" Accuracy="200" Reflexes="0" Bravery="100" Abilities="SpawnReaper"  CrouchDisabled="1" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.ReaperNonCombatantCorpse" stunned="Items.ReaperNonCombatant" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.zombiemelee" />
         </Equipment>
-        
       </Equipments>
     </Rank>
-
     <Rank type="Zombie.wolf">
       <Props APs="36" Resilience="60" Strength="60" Accuracy="200" Reflexes="0" Bravery="100" Abilities="SpawnReaper"  CrouchDisabled="1" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.ReaperNonCombatantCorpse" stunned="Items.ReaperNonCombatant" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.zombiemelee" />
         </Equipment>
-        
       </Equipments>
     </Rank>
-
     <Rank type="Zombie.buzzard">
       <Props APs="36" Resilience="60" Strength="60" Accuracy="200" Reflexes="0" Bravery="100" Abilities="SpawnReaper"  CrouchDisabled="1" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.ReaperNonCombatantCorpse" stunned="Items.ReaperNonCombatant" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.zombiemelee" />
         </Equipment>
-        
       </Equipments>
     </Rank>
-
-
     <Rank type="ZombieAlpha.generic">
       <Props APs="36" Resilience="60" Strength="60" Accuracy="200" Reflexes="0" Bravery="100" Abilities="SpawnReaper"  CrouchDisabled="1" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.ReaperNonCombatantCorpse" stunned="Items.ReaperNonCombatant" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.zombiealphamelee" />
         </Equipment>
-        
       </Equipments>
     </Rank>
-
     <Rank type="ZombieAlpha.basic">
       <Props APs="36" Resilience="60" Strength="60" Accuracy="200" Reflexes="0" Bravery="100" Abilities="SpawnReaper"  CrouchDisabled="1" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.ReaperNonCombatantCorpse" stunned="Items.ReaperNonCombatant" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.zombiealphamelee" />
         </Equipment>
-        
       </Equipments>
     </Rank>
-
     <Rank type="ZombieAlpha.wolf">
       <Props APs="36" Resilience="60" Strength="60" Accuracy="200" Reflexes="0" Bravery="100" Abilities="SpawnReaper"  CrouchDisabled="1" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.ReaperNonCombatantCorpse" stunned="Items.ReaperNonCombatant" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.zombiealphamelee" />
         </Equipment>
-        
       </Equipments>
     </Rank>
-
     <Rank type="ZombieAlpha.buzzard">
       <Props APs="36" Resilience="60" Strength="60" Accuracy="200" Reflexes="0" Bravery="100" Abilities="SpawnReaper"  CrouchDisabled="1" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.ReaperNonCombatantCorpse" stunned="Items.ReaperNonCombatant" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.zombiealphamelee" />
         </Equipment>
-        
       </Equipments>
     </Rank>
-
-
     <Rank type="Reaper">
-  
-		<Behaviour>
-			<Pathing 
+      <Behaviour>
+        <Pathing 
 					Environment = "-10"
 					Sight="6" 
 					Sound="-0.1"
@@ -1566,25 +1325,20 @@
 					EnemyLOS="4.0"
 					AlliedLOS="0"
 					Goal="0" />
-		</Behaviour>
-	
+      </Behaviour>
       <Props APs="70" Resilience="80" Strength="60" Accuracy="200" Reflexes="60" Bravery="100" Abilities="Zombify" CrouchDisabled="1" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.ReaperCorpse" stunned="Items.Reaper" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.reaperclaws" />
         </Equipment>
-        
       </Equipments>
     </Rank>
-
     <Rank type="ReaperAlpha">
-  
-		<Behaviour>
-			<Pathing 
+      <Behaviour>
+        <Pathing 
 					Environment = "-10"
 					Sight="6" 
 					Sound="-0.1"
@@ -1595,81 +1349,64 @@
 					EnemyLOS="4.0"
 					AlliedLOS="0"
 					Goal="0" />
-		</Behaviour>
-		
+      </Behaviour>
       <Props APs="80" Resilience="120" Strength="60" Accuracy="200" Reflexes="60" Bravery="100" Abilities="Zombify" CrouchDisabled="1" PsionicPower="60" PsionicAttacks="Paralyse" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.ReaperAlphaCorpse" stunned="Items.ReaperAlpha" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-        
         <Equipment>
           <PrimaryWeapon name="weapon.reaperalphaclaws" />
         </Equipment>
-        
       </Equipments>
     </Rank>
   </AI>
-
-
-<!--                    -->
-<!--  	  Praetor		-->
-<!--                    -->
-
-
+  <!--                    -->
+  <!--  	  Praetor		-->
+  <!--                    -->
   <AI race="Praetor">
     <Sounds death="PraetorDeath" injury="PraetorInjury" movingSound="PraetorMovingSound" />
     <Props noBloodStain="1" sightRange="20" suppressionMultiplier="0.0" />
-	<GibbedSpectre name="particles/gibbed_alien/gibbed_alien" />
-    
+    <GibbedSpectre name="particles/gibbed_alien/gibbed_alien" />
     <Rank type="Leader">
-      <Props APs="80" Resilience="200" Strength="40" Accuracy="60" Reflexes="80" Bravery="100" CrouchDisabled="1" PsionicPower="100" PsionicAttacks="MindControl, Dread" />
+      <Props APs="80" Resilience="200" Strength="40" Accuracy="60" Reflexes="80" Bravery="100" CrouchDisabled="1" PsionicPower="80" PsionicAttacks="MindControl, Dread" />
       <Armour kinetic="0" energy="0" chemical="100" incendiary="0" />
       <Items killed="Items.PraetorLeaderCorpse" stunned="Items.PraetorLeader" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <Equipments>
-
         <Equipment>
           <PrimaryWeapon name="weapon.alienpraetorgun" />
           <Belt>
 	      </Belt>
         </Equipment>
-
       </Equipments>
     </Rank>
-
     <Rank type="Commander">
-		<Behaviour>
-		<Decision 
+      <Behaviour>
+        <Decision 
 				MinimumAccuracy = "1.0"		
 				EngagementRange = "0" />
-	</Behaviour>
-      <Props APs="80" Resilience="200" Strength="40" Accuracy="80" Reflexes="100" Bravery="100" CrouchDisabled="1" PsionicPower="120" PsionicAttacks="MindControl, Dread" />
+      </Behaviour>
+      <Props APs="80" Resilience="200" Strength="40" Accuracy="80" Reflexes="100" Bravery="100" CrouchDisabled="1" PsionicPower="80" PsionicAttacks="MindControl, Dread" />
       <Armour kinetic="0" energy="0" chemical="50" incendiary="0" />
       <Items killed="Items.PraetorLeaderCorpse" stunned="Items.PraetorLeader" />
-	  <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
+      <BloodHitSprite name="particles/hit_alienblood/hit_alienblood" />
       <FinalMission endGameOnKill="1" />
       <Equipments>
-
         <Equipment>
           <PrimaryWeapon name="weapon.alienpraetorgun" />
           <Belt>
 	      </Belt>
         </Equipment>
-
       </Equipments>
     </Rank>
   </AI>
-  
-  
-<!--                    -->
-<!--  	  Drones		-->
-<!--                    -->
-
+  <!--                    -->
+  <!--  	  Drones		-->
+  <!--                    -->
   <AI race="Scuttler">
     <Sounds death="PraetorDeath" injury="PraetorInjury" movingSound="PraetorMovingSound" />
     <Props sightRange="14" />
-    
     <Rank type="Scuttler">
       <Props APs="80" Resilience="55" Strength="35" Accuracy="120" Reflexes="100" Bravery="100"
              PsionicPower="" Recklessness="5" Tactical="9" Grenade="" Situational="9" PreferredRange="Medium" Abilities="Robotic"
@@ -1677,117 +1414,99 @@
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items />
       <Equipments>
-
         <Equipment>
           <PrimaryWeapon name="weapon.AlienPlasmaRifle" />
         </Equipment>
-
       </Equipments>
     </Rank>
   </AI>
-
   <AI race="Lightdrone">
     <Sounds death="Weapon Frag Grenade" injury="LightDroneInjury" movingSound="PraetorMovingSound" />
     <Props noBloodStain="1" sightRange="19" suppressionMultiplier="0.0" />
-	<Behaviour>	
-		<Pathing 
+    <Behaviour>
+      <Pathing 
 				Sight="-0.1" 
 				Cover="0"
 				EnemyInfluence="-10"
 				AlliedInfluence="-0.6" 
 				Trepidation="0.0"
 				NearestEnemy="-0.1" />
-		<Decision 
+      <Decision 
 				MinimumAccuracy = "0.05"		
 				EngagementRange = "25.0" />
-	</Behaviour>
-    
+    </Behaviour>
     <Rank type="Lightdrone">
       <Props APs="65" Resilience="80" Strength="30" Accuracy="50" Reflexes="70" Bravery="100" Abilities="Robotic" CrouchDisabled="1" Hovering="1" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.LightDroneWreckage" stunned="Items.LightDroneWreckage" />
-	  <BloodHitSprite name="particles/hit_spark/hit_spark" />
+      <BloodHitSprite name="particles/hit_spark/hit_spark" />
       <Equipments>
-
         <Equipment>
           <PrimaryWeapon name="weapon.lightdroneblaster" />
         </Equipment>
-
       </Equipments>
     </Rank>
   </AI>
-
   <AI race="Mediumdrone">
-	<Behaviour>	
-		<Pathing 
+    <Behaviour>
+      <Pathing 
 				Sight="-0.1" 
 				Cover="0"
 				EnemyInfluence="-10"
 				AlliedInfluence="-0.6" 
 				Trepidation="0.0"
 				NearestEnemy="-0.1" />
-		<Decision 
+      <Decision 
 				MinimumAccuracy = "0.05"		
 				EngagementRange = "25.0" />
-	</Behaviour>
+    </Behaviour>
     <Sounds death="Weapon Frag Grenade" injury="LightDroneInjury" movingSound="MediumDroneMoveSound" />
     <Props moveSpeed="150" stairsMoveSpeed="80" noBloodStain="1" sightRange="19" deathExplosion="weapon.explosive.mediumdrone" suppressionMultiplier="0.0" />
-    
     <Rank type="Mediumdrone">
       <Props APs="65" Resilience="150" Strength="60" Accuracy="50" Reflexes="60" Bravery="100" Abilities="Robotic" CrouchDisabled="1" Hovering="1" pathWidth="2" />
       <Armour kinetic="30" energy="30" chemical="30" incendiary="30" />
       <Items killed="Items.MediumDroneWreckage" stunned="Items.MediumDroneWreckage" />
-	  <BloodHitSprite name="particles/hit_spark/hit_spark" />
+      <BloodHitSprite name="particles/hit_spark/hit_spark" />
       <Equipments>
-
         <Equipment>
           <PrimaryWeapon name="weapon.mediumdronecannon" />
         </Equipment>
-
       </Equipments>
     </Rank>
   </AI>
-  
   <AI race="Heavydrone">
-	<Behaviour>	
-		<Pathing 
+    <Behaviour>
+      <Pathing 
 				Sight="-0.1" 
 				Cover="0"
 				EnemyInfluence="-10"
 				AlliedInfluence="-2" 
 				Trepidation="0.0"
 				NearestEnemy="-0.1" />
-		<Decision 
+      <Decision 
 				MinimumAccuracy = "0.05"		
 				EngagementRange = "25.0" />
-	</Behaviour>
+    </Behaviour>
     <Sounds death="Weapon Frag Grenade" injury="LightDroneInjury" movingSound="HeavyDroneMoveSound" />
     <Props moveSpeed="100" stairsMoveSpeed="60" noBloodStain="1" sightRange="19" deathExplosion="weapon.explosive.heavydrone" suppressionMultiplier="0.0" />
-    
     <Rank type="Heavydrone">
       <Props APs="65" Resilience="300" Strength="60" Accuracy="50" Reflexes="50" Bravery="100" Abilities="Robotic" CrouchDisabled="1" Hovering="1" pathWidth="3" />
       <Armour kinetic="45" energy="45" chemical="45" incendiary="45" />
       <Items killed="Items.HeavyDroneWreckage" stunned="Items.HeavyDroneWreckage" />
-	  <BloodHitSprite name="particles/hit_spark/hit_spark" />
+      <BloodHitSprite name="particles/hit_spark/hit_spark" />
       <Equipments>
-
         <Equipment>
           <PrimaryWeapon name="weapon.heavydronecannon" />
         </Equipment>
-
       </Equipments>
     </Rank>
   </AI>
-
-  
-<!--                    -->
-<!--  	  Civilians		-->
-<!--                    -->
-
+  <!--                    -->
+  <!--  	  Civilians		-->
+  <!--                    -->
   <AI race="Human">
-  
-	<Behaviour>
-		<Pathing 
+    <Behaviour>
+      <Pathing 
 				Environment = "-1"
 				Sight="1" 
 				Sound="1"
@@ -1797,29 +1516,23 @@
 				EnemyLOS="1"
 				AlliedLOS="0.5"
 				NearestEnemy="1"
-				Goal="-1" />		
-		
-	</Behaviour>
-	
+				Goal="-1" />
+    </Behaviour>
     <Sounds death="CivilianDeath" injury="CivilianInjury" />
     <Props sightRange="16" />
-	<GibbedSpectre name="particles/gibbed_human/gibbed_human" />
-    
-    <Rank type="NonCombatant">		
+    <GibbedSpectre name="particles/gibbed_human/gibbed_human" />
+    <Rank type="NonCombatant">
       <Props APs="45" Resilience="20" Strength="40" Accuracy="50" Reflexes="40" Bravery="35"
              PsionicPower="" Recklessness="0" Tactical="0" Grenade="0" Situational="0" PreferredRange="Medium"
              CrouchDisabled="0" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
-	  <Items killed="Items.HumanNonCombatantCorpse" stunned="Items.HumanNonCombatant" />
-	  <BloodHitSprite name="particles/hit_blood/hit_blood" />
+      <Items killed="Items.HumanNonCombatantCorpse" stunned="Items.HumanNonCombatant" />
+      <BloodHitSprite name="particles/hit_blood/hit_blood" />
     </Rank>
-
     <!--  	  Local Forces		-->
-
     <Rank type="Combatant">
-
-	<Behaviour>
-		<Pathing
+      <Behaviour>
+        <Pathing
 				Environment = "-1"
 				Sight="1"
 				Sound="1"
@@ -1830,17 +1543,15 @@
 				AlliedLOS="0.5"
 				NearestEnemy="1"
 				Goal="-1" />
-	</Behaviour>
-
+      </Behaviour>
       <Props APs="45" Resilience="20" Strength="40" Accuracy="50" Reflexes="40" Bravery="35"
              PsionicPower="" Recklessness="0" Tactical="0" Grenade="0" Situational="0" PreferredRange="Medium"
              CrouchDisabled="0" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
-	  <Items killed="Items.HumanCombatantCorpse" stunned="Items.HumanCombatant" />
-	  <BloodHitSprite name="particles/hit_blood/hit_blood" />
+      <Items killed="Items.HumanCombatantCorpse" stunned="Items.HumanCombatant" />
+      <BloodHitSprite name="particles/hit_blood/hit_blood" />
     </Rank>
   </AI>
-    
   <AI race="MindCtrledHuman">
     <!-- Basically, most of these props aren't used and gotten from mind-controled human character -->
     <Sounds death="CivilianDeath" injury="CivilianInjury" />
@@ -1851,8 +1562,7 @@
              CrouchDisabled="0" />
       <Armour kinetic="0" energy="0" chemical="0" incendiary="0" />
       <Items killed="Items.HumanCombatantCorpse" stunned="Items.HumanCombatant" />
-	  <BloodHitSprite name="particles/hit_blood/hit_blood" />
+      <BloodHitSprite name="particles/hit_blood/hit_blood" />
     </Rank>
   </AI>
-
 </AIProps>
