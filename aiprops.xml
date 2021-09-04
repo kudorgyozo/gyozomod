@@ -2,27 +2,27 @@
 <AIProps>
   <AI race="Caesan" MODMERGEATTRIBUTE="race" MODMERGE="update">
     <Rank type="Officer" MODMERGEATTRIBUTE="type" MODMERGE="update">
-      <Props PsionicPower="50" PsionicAttacks="Fear" />
+      <Props PsionicPower="60" PsionicAttacks="Fear" />
     </Rank>
     <Rank type="Psion" MODMERGEATTRIBUTE="type" MODMERGE="update">
-      <Props PsionicPower="50" PsionicAttacks="Fear" />
+      <Props PsionicPower="60" PsionicAttacks="Fear" />
     </Rank>
     <Rank type="Leader" MODMERGEATTRIBUTE="type" MODMERGE="update">
-      <Props PsionicPower="50" PsionicAttacks="Bezerk, MindControl" />
+      <Props PsionicPower="80" PsionicAttacks="Bezerk, MindControl" />
     </Rank>
   </AI>
 
   <AI race="Reaper" MODMERGEATTRIBUTE="race" MODMERGE="update">
     <Rank type="ReaperAlpha" MODMERGEATTRIBUTE="type" MODMERGE="update">
-      <Props PsionicPower="50" PsionicAttacks="Paralyse" />
+      <Props PsionicPower="60" PsionicAttacks="Paralyse" />
     </Rank>
   </AI>
   <AI race="Praetor" MODMERGEATTRIBUTE="race" MODMERGE="update">
     <Rank type="Leader" MODMERGEATTRIBUTE="type" MODMERGE="update">
-      <Props PsionicPower="60" PsionicAttacks="MindControl, Dread" />
+      <Props PsionicPower="100" PsionicAttacks="MindControl, Dread" />
     </Rank>
     <Rank type="Commander" MODMERGEATTRIBUTE="type" MODMERGE="update">
-      <Props PsionicPower="60" PsionicAttacks="MindControl, Dread" />
+      <Props PsionicPower="120" PsionicAttacks="MindControl, Dread" />
     </Rank>
   </AI>
 

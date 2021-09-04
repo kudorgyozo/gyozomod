@@ -2,11 +2,11 @@
 <GameConfig>
   <soldierDevelopment>
     <!-- Soldiers develop their attributes by using them. Each time the soldier performs a certain action, he will gain a "progress point" in that attribute. Once he reaches the "pointsToProgress" value, the attribute will increase by one point. These progress points are cumulative and are stored from mission to mission. -->
-    <APProgress       pointsToProgress="250" maxPointsInSingleBattle="500" globalMaxProgress="98" comment="A progress point is earned every time a soldier spends a TU on a mission" />
-    <strengthProgress pointsToProgress="20"  maxPointsInSingleBattle="40"  globalMaxProgress="98" strengthCoeff="80" comment="Points are given when soldier moves one tile while carrying more than strengthCoeff percent of its maximum carry weight" />
-    <accuracyProgress pointsToProgress="1"   maxPointsInSingleBattle="2"   globalMaxProgress="98" comment="Points are given when a soldier attempts to fire at a valid hostile enemy within weapon range * 1.5" />
-    <reflexesProgress pointsToProgress="1"   maxPointsInSingleBattle="2"    globalMaxProgress="98" comment="A progress point is gained when a soldier performs a Reaction Fire test (it doesn't matter whether he passes or fails it)" />
-    <braveryProgress  pointsToProgress="1"   maxPointsInSingleBattle="2"    globalMaxProgress="98" comment="A progress point is earned whenever a soldier panics in battle" />
+    <APProgress       pointsToProgress="250" maxPointsInSingleBattle="750" globalMaxProgress="98" comment="A progress point is earned every time a soldier spends a TU on a mission" />
+    <strengthProgress pointsToProgress="20"  maxPointsInSingleBattle="60"  globalMaxProgress="98" strengthCoeff="80" comment="Points are given when soldier moves one tile while carrying more than strengthCoeff percent of its maximum carry weight" />
+    <accuracyProgress pointsToProgress="1"   maxPointsInSingleBattle="3"   globalMaxProgress="98" comment="Points are given when a soldier attempts to fire at a valid hostile enemy within weapon range * 1.5" />
+    <reflexesProgress pointsToProgress="1"   maxPointsInSingleBattle="3"    globalMaxProgress="98" comment="A progress point is gained when a soldier performs a Reaction Fire test (it doesn't matter whether he passes or fails it)" />
+    <braveryProgress  pointsToProgress="1"   maxPointsInSingleBattle="3"    globalMaxProgress="98" comment="A progress point is earned whenever a soldier panics in battle" />
     <resilienceProgress pointsToProgress="5" globalMaxProgress="97" comment="A progress points is earned every time the soldier gets a skillup in any other attribute" />
   </soldierDevelopment>
 </GameConfig>
