@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<Armours>
+  <Armour name="armour.basic" MODMERGEATTRIBUTE="name" MODMERGE="update">
+    <Props moveSpeed="1200" stairsMoveSpeed="720" vaultMoveSpeed="240" />
+  </Armour>
+
+  <Armour name="armour.jackal" MODMERGEATTRIBUTE="name" MODMERGE="update">
+    <Props moveSpeed="1200" stairsMoveSpeed="720" vaultMoveSpeed="240" />
+  </Armour>
+  <Armour name="armour.wolf" MODMERGEATTRIBUTE="name" MODMERGE="update">
+    <Props moveSpeed="1200" stairsMoveSpeed="720" vaultMoveSpeed="240" />
+  </Armour>
+  <Armour name="armour.buzzard" MODMERGEATTRIBUTE="name" MODMERGE="update">
+    <Props moveSpeed="1200" stairsMoveSpeed="720" vaultMoveSpeed="240" />
+  </Armour>
+  <Armour name="armour.predator" MODMERGEATTRIBUTE="name" MODMERGE="update">
+    <Props moveSpeed="1200" stairsMoveSpeed="720" vaultMoveSpeed="240" />
+  </Armour>
+  <Armour name="armour.sentinel" MODMERGEATTRIBUTE="name" MODMERGE="update">
+    <Props moveSpeed="1200" stairsMoveSpeed="720" vaultMoveSpeed="240" />
+  </Armour>
+</Armours>
