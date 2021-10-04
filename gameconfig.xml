@@ -9,4 +9,13 @@
     <braveryProgress  pointsToProgress="1"   maxPointsInSingleBattle="3"    globalMaxProgress="98" comment="A progress point is earned whenever a soldier panics in battle" />
     <resilienceProgress pointsToProgress="5" globalMaxProgress="97" comment="A progress points is earned every time the soldier gets a skillup in any other attribute" />
   </soldierDevelopment>
+
+  <soldierStats comment="Soldier's stats are generated with values in the specified range."> 
+    <actionPoints min="45" max="65" />
+    <resilence    min="40" max="65" />
+    <strength     min="40" max="65" />
+    <accuracy     min="40" max="65" />
+    <reflexes     min="40" max="65" />
+    <bravery      min="40" max="65" />
+  </soldierStats>
 </GameConfig>
