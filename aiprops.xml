@@ -22,7 +22,7 @@
       <Props PsionicPower="100" PsionicAttacks="MindControl, Dread" />
     </Rank>
     <Rank type="Commander" MODMERGEATTRIBUTE="type" MODMERGE="update">
-      <Props PsionicPower="120" PsionicAttacks="MindControl, Dread" />
+      <Props PsionicPower="100" PsionicAttacks="MindControl, Dread" />
     </Rank>
   </AI>
 
